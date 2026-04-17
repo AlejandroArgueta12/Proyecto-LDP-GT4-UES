@@ -1,0 +1,19 @@
+# Archivos de entorno virtual (Python)
+venv/
+.venv/
+env/
+bin/
+lib/
+include/
+
+# Caché de Python 
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+
+# PSeInt (Archivos temporales)
+*.bak
