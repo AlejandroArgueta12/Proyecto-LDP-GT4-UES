@@ -3,6 +3,7 @@
 # ==========================================
 
 import tkinter as tk
+import sys
 
 from login_admin import LoginAdmin
 from login_trabajador import LoginTrabajador
@@ -28,6 +29,21 @@ COLOR_BLANCO = "#F5F5F5"
 COLOR_AZUL = "#3D86D6"
 
 ventana.configure(bg=COLOR_FONDO)
+
+# ==========================================
+# CERRAR TODO EL SISTEMA
+# ==========================================
+def cerrar_sistema():
+
+    ventana.destroy()
+
+    sys.exit()
+
+# Evento al presionar X
+ventana.protocol(
+    "WM_DELETE_WINDOW",
+    cerrar_sistema
+)
 
 # ==========================================
 # CONTENEDOR CENTRAL

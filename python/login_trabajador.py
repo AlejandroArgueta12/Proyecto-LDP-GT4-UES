@@ -5,8 +5,14 @@
 import json
 import os
 from tkinter import messagebox
-from login_base import LoginBase
 
+from login_base import LoginBase
+from panel_trabajador import PanelTrabajador
+
+
+# ==========================================
+# RUTA DEL JSON
+# ==========================================
 
 RUTA_JSON = os.path.join(
     os.path.dirname(__file__),
@@ -18,6 +24,10 @@ RUTA_JSON = os.path.join(
 RUTA_JSON = os.path.abspath(RUTA_JSON)
 
 
+# ==========================================
+# CLASE LOGIN TRABAJADOR
+# ==========================================
+
 class LoginTrabajador(LoginBase):
 
     def __init__(self, ventana_padre):
@@ -27,18 +37,74 @@ class LoginTrabajador(LoginBase):
             "Login de Trabajador"
         )
 
+    # ==========================================
+    # LOGIN
+    # ==========================================
+
     def login(self):
 
-        usuario = self.entry_user.get()
-        password = self.entry_pass.get()
+        usuario = self.entry_user.get().strip()
+        password = self.entry_pass.get().strip()
 
-        with open(RUTA_JSON, "r") as archivo:
+        # ==========================================
+        # VALIDAR CAMPOS
+        # ==========================================
 
-            datos = json.load(archivo)
+        if usuario == "" or password == "":
 
-        empleados = datos["empleados"]
+            messagebox.showwarning(
+                "Advertencia",
+                "Complete todos los campos"
+            )
+
+            return
+
+        # ==========================================
+        # LEER JSON
+        # ==========================================
+
+        try:
+
+            with open(
+                RUTA_JSON,
+                "r",
+                encoding="utf-8"
+            ) as archivo:
+
+                datos = json.load(archivo)
+
+        except FileNotFoundError:
+
+            messagebox.showerror(
+                "Error",
+                "No se encontró el archivo usuarios.json"
+            )
+
+            return
+
+        except json.JSONDecodeError:
+
+            messagebox.showerror(
+                "Error",
+                "El archivo JSON está dañado"
+            )
+
+            return
+
+        # ==========================================
+        # OBTENER EMPLEADOS
+        # ==========================================
+
+        empleados = datos.get(
+            "empleados",
+            []
+        )
 
         acceso = False
+
+        # ==========================================
+        # VALIDAR USUARIO
+        # ==========================================
 
         for empleado in empleados:
 
@@ -51,6 +117,10 @@ class LoginTrabajador(LoginBase):
                 acceso = True
                 break
 
+        # ==========================================
+        # ACCESO CORRECTO
+        # ==========================================
+
         if acceso:
 
             messagebox.showinfo(
@@ -58,8 +128,20 @@ class LoginTrabajador(LoginBase):
                 "Bienvenido trabajador"
             )
 
-            print("TRABAJADOR")
-            print(usuario)
+            # OCULTAR VENTANA PRINCIPAL
+            self.ventana_padre.withdraw()
+
+            # CERRAR LOGIN
+            self.ventana.destroy()
+
+            # ABRIR PANEL TRABAJADOR
+            PanelTrabajador(
+                self.ventana_padre
+            )
+
+        # ==========================================
+        # ACCESO INCORRECTO
+        # ==========================================
 
         else:
 

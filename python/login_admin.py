@@ -5,8 +5,14 @@
 import json
 import os
 from tkinter import messagebox
-from login_base import LoginBase
 
+from login_base import LoginBase
+from panel_admin import PanelAdmin
+
+
+# ==========================================
+# RUTA DEL JSON
+# ==========================================
 
 RUTA_JSON = os.path.join(
     os.path.dirname(__file__),
@@ -14,6 +20,13 @@ RUTA_JSON = os.path.join(
     "data",
     "usuarios.json"
 )
+
+RUTA_JSON = os.path.abspath(RUTA_JSON)
+
+
+# ==========================================
+# CLASE LOGIN ADMIN
+# ==========================================
 
 class LoginAdmin(LoginBase):
 
@@ -24,18 +37,74 @@ class LoginAdmin(LoginBase):
             "Login de Administrador"
         )
 
+    # ==========================================
+    # LOGIN
+    # ==========================================
+
     def login(self):
 
-        usuario = self.entry_user.get()
-        password = self.entry_pass.get()
+        usuario = self.entry_user.get().strip()
+        password = self.entry_pass.get().strip()
 
-        with open(RUTA_JSON, "r") as archivo:
+        # ==========================================
+        # VALIDAR CAMPOS
+        # ==========================================
 
-            datos = json.load(archivo)
+        if usuario == "" or password == "":
 
-        admins = datos["admins"]
+            messagebox.showwarning(
+                "Advertencia",
+                "Complete todos los campos"
+            )
+
+            return
+
+        # ==========================================
+        # LEER JSON
+        # ==========================================
+
+        try:
+
+            with open(
+                RUTA_JSON,
+                "r",
+                encoding="utf-8"
+            ) as archivo:
+
+                datos = json.load(archivo)
+
+        except FileNotFoundError:
+
+            messagebox.showerror(
+                "Error",
+                "No se encontró el archivo usuarios.json"
+            )
+
+            return
+
+        except json.JSONDecodeError:
+
+            messagebox.showerror(
+                "Error",
+                "El archivo JSON está dañado"
+            )
+
+            return
+
+        # ==========================================
+        # OBTENER ADMINS
+        # ==========================================
+
+        admins = datos.get(
+            "admins",
+            []
+        )
 
         acceso = False
+
+        # ==========================================
+        # VALIDAR USUARIO
+        # ==========================================
 
         for admin in admins:
 
@@ -48,6 +117,10 @@ class LoginAdmin(LoginBase):
                 acceso = True
                 break
 
+        # ==========================================
+        # ACCESO CORRECTO
+        # ==========================================
+
         if acceso:
 
             messagebox.showinfo(
@@ -55,8 +128,20 @@ class LoginAdmin(LoginBase):
                 "Bienvenido administrador"
             )
 
-            print("ADMINISTRADOR")
-            print(usuario)
+            # OCULTAR VENTANA PRINCIPAL
+            self.ventana_padre.withdraw()
+
+            # CERRAR LOGIN
+            self.ventana.destroy()
+
+            # ABRIR PANEL ADMIN
+            PanelAdmin(
+                self.ventana_padre
+            )
+
+        # ==========================================
+        # ACCESO INCORRECTO
+        # ==========================================
 
         else:
 

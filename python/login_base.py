@@ -298,3 +298,5 @@ class LoginBase:
         self.ventana.destroy()
 
         self.ventana_padre.destroy()
+
+        exit()
