@@ -4,6 +4,8 @@
 
 from panel_base import PanelBase
 
+from crear_proyecto import CrearProyecto
+
 
 class PanelAdmin(PanelBase):
 
@@ -23,4 +25,25 @@ class PanelAdmin(PanelBase):
             botones,
             "admin",
             ventana_padre
+        )
+
+        # ======================================
+        # BOTON CREACION
+        # ======================================
+
+        self.botones_menu[0].config(
+            command=self.abrir_crear_proyecto
+        )
+
+    # ======================================
+    # ABRIR CREAR PROYECTO
+    # ======================================
+
+    def abrir_crear_proyecto(self):
+
+        self.ventana.withdraw()
+
+        CrearProyecto(
+            self.ventana_padre,
+            self
         )
