@@ -5,6 +5,7 @@
 from panel_base import PanelBase
 
 from crear_proyecto import CrearProyecto
+from asignar_tarea_a_proyecto import AsignarTareaAProyecto
 
 
 class PanelAdmin(PanelBase):
@@ -35,6 +36,14 @@ class PanelAdmin(PanelBase):
             command=self.abrir_crear_proyecto
         )
 
+        # ======================================
+        # BOTON ASIGNACION
+        # ======================================
+
+        self.botones_menu[1].config(
+            command=self.abrir_asignacion
+        )
+
     # ======================================
     # ABRIR CREAR PROYECTO
     # ======================================
@@ -44,6 +53,19 @@ class PanelAdmin(PanelBase):
         self.ventana.withdraw()
 
         CrearProyecto(
+            self.ventana_padre,
+            self
+        )
+
+    # ======================================
+    # ABRIR ASIGNACION
+    # ======================================
+
+    def abrir_asignacion(self):
+
+        self.ventana.withdraw()
+
+        AsignarTareaAProyecto(
             self.ventana_padre,
             self
         )
