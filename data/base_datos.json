@@ -1,0 +1,37 @@
+{
+    "empleados": {
+        "JN315": {
+            "nombre": "juan",
+            "cargo": "supervisor",
+            "registro_horas_diarias": {
+                "15/08/2026": 3.0,
+                "11/09/2026": 10.0
+            }
+        },
+        "PL835": {
+            "nombre": "pablo",
+            "cargo": "asesor",
+            "registro_horas_diarias": {}
+        }
+    },
+    "proyectos": {
+        "CG752": {
+            "nombre": "casa grande",
+            "fecha_inicio": "07/09/2026",
+            "fecha_fin": "20/01/2027",
+            "tareas": [],
+            "empleados_asignados": [
+                "JN315"
+            ]
+        }
+    },
+    "tareas": {
+        "MT152": {
+            "nombre_tarea": "materiales",
+            "descripcion": "recibir la carga de materiales",
+            "horas_invertidas": 10.0,
+            "proyecto_asignado": "CG752",
+            "empleado_asignado": "JN315"
+        }
+    }
+}
