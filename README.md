@@ -5,6 +5,7 @@ Este proyecto consiste en una aplicación de interfaz de línea de comandos (CLI
 
 ## integrantes
 **Mauricio Alejandro Argueta Rodriguez**
+
 **Fernando José Tesorero Brito**
 
 ## Entrega #2: Implementación en Python
