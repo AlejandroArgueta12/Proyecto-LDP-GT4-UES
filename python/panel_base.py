@@ -164,7 +164,8 @@ class PanelBase:
         self.iconos = {
             "creación": "➕",
             "asignación": "📋",
-            "informe": "📊"
+            "informe": "📊",
+            "gestión": "⚙️"
         }
 
         # ======================================
