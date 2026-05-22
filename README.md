@@ -10,6 +10,7 @@ Este proyecto consiste en una aplicación de interfaz de línea de comandos (CLI
 
 ## Entrega #2: Implementación en Python
 En esta etapa, el proyecto ha sido migrado a una estructura orientada a objetos en python, incorporando:
+
 **Persistencia de Datos:** Uso de archivos ".JSON" para guardar información de usuarios y proyectos de forma permanente.
 
 **Arquitectura Modular:** Separación de lógica de negrocio, manejo de datos y menú de consola.
