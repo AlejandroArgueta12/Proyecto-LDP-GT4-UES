@@ -10,7 +10,7 @@ class PanelAdmin(PanelBase):
         botones = [
             ("Creación", True),
             ("Asignación", True),
-            ("Gestión de datos", True),
+            ("Gestión", True),
             ("Ver informes", True)
         ]
 
