@@ -9,8 +9,8 @@
             }
         },
         "PL835": {
-            "nombre": "pablo",
-            "cargo": "asesor",
+            "nombre": "Pablo",
+            "cargo": "Recursos Humanos",
             "registro_horas_diarias": {}
         }
     },
@@ -23,6 +23,13 @@
             "empleados_asignados": [
                 "JN315"
             ]
+        },
+        "1": {
+            "nombre": "Pagina web",
+            "fecha_inicio": "22/05/2026",
+            "fecha_fin": "23/06/2023",
+            "tareas": [],
+            "empleados_asignados": []
         }
     },
     "tareas": {
