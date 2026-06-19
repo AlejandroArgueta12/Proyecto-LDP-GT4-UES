@@ -1,0 +1,51 @@
+{
+    "empleados": {
+        "JN315": {
+            "nombre": "juan",
+            "cargo": "supervisor",
+            "registro_horas_diarias": {
+                "15/08/2026": 3.0,
+                "11/09/2026": 10.0
+            }
+        },
+        "PL835": {
+            "nombre": "Pablo",
+            "cargo": "Recursos Humanos",
+            "registro_horas_diarias": {}
+        }
+    },
+    "proyectos": {
+        "CG752": {
+            "nombre": "casa grande",
+            "fecha_inicio": "07/09/2026",
+            "fecha_fin": "20/01/2027",
+            "tareas": [],
+            "empleados_asignados": [
+                "JN315"
+            ]
+        },
+        "1": {
+            "nombre": "Pagina web",
+            "fecha_inicio": "22/05/2026",
+            "fecha_fin": "23/06/2023",
+            "tareas": [],
+            "empleados_asignados": []
+        }
+    },
+    "tareas": {
+        "MT152": {
+            "nombre_tarea": "materiales",
+            "descripcion": "recibir la carga de materiales",
+            "horas_invertidas": 10.0,
+            "proyecto_asignado": "CG752",
+            "empleado_asignado": "JN315"
+        },
+        "HTML1": {
+            "nombre_tarea": "HHTML",
+            "descripcion": "Creaci\u00f3n del html",
+            "horas_invertidas": 0,
+            "proyecto_asignado": "CG752",
+            "empleado_asignado": "JN315"
+        }
+    }
+}
