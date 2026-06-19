@@ -5,6 +5,7 @@ Este proyecto consiste en una aplicación de escritorio con interfaz gráfica qu
 
 ## Integrantes
 **Mauricio Alejandro Argueta Rodriguez**
+
 **Fernando José Tesorero Brito**
 
 ## Características Principales
@@ -45,10 +46,13 @@ Este proyecto consiste en una aplicación de escritorio con interfaz gráfica qu
 ## Instalación y ejecución
 **1. Clonar el repositorio:**
 git clone <url-del-repositorio>
+
 **2. Acceder al directorio del proyecto:**
 cd "proyecto final"
+
 **3. Instalar dependencias:**
 pip install -r requirements.txt
+
 **4. Ejecutar la aplicación:**
 cd python
 python app.py
