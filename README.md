@@ -53,8 +53,10 @@ cd "proyecto final"
 **3. Instalar dependencias:**
 pip install -r requirements.txt
 
-**4. Ejecutar la aplicación:**
+**4. Ingresar a la carpeta principal de la aplicación:**
 cd python
+
+**5. Ejecutar el sistema:**
 python app.py
 
 ## Tecnologías Utilizadas
