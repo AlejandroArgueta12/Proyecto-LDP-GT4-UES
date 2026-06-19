@@ -1,43 +1,62 @@
 # Gestor de Proyectos Simple - Ciclo 1/2026
 
 ## Descripción del Proyecto
-Este proyecto consiste en una aplicación de interfaz de línea de comandos (CLI) desarrollada para la asignatura **Lógica de Programación Orientada a Objetos**. El sistema permite la gestión de empleados y proyectos, la creación de tareas y el registro de horas trabajadas con validaciones de seguridad.
+Este proyecto consiste en una aplicación de escritorio con interfaz gráfica que permite gestionar empleados, proyectos y tareas, además de registrar las horas trabajadas por cada empleado. El sistema incorpora control de acceso mediante roles, diferenciando entre administradores y trabajadores, así como validaciones para garantizar la integridad de la información almacenada.
 
-## integrantes
+## Integrantes
 **Mauricio Alejandro Argueta Rodriguez**
-
 **Fernando José Tesorero Brito**
 
-## Entrega #2: Implementación en Python
-En esta etapa, el proyecto ha sido migrado a una estructura orientada a objetos en python, incorporando:
+## Características Principales
+## Interfaz Gráfica de Usuario
+* Navegación intuitiva mediante ventanas y formularios interactivos.
+* Diseño modular para la gestión de empleados, proyectos, tareas y reportes.
+* Implementada utilizando la librería Tkinter.
 
-**Persistencia de Datos:** Uso de archivos ".JSON" para guardar información de usuarios y proyectos de forma permanente.
+## Sistema de Roles
+**Administrador**
+* Crear y gestionar empleados.
+* Crear y gestionar proyectos.
+* Crear tareas.
+* Asignar tareas a proyectos.
+* Asignar tareas a trabajadores.
+* Consultar reportes e información general del sistema.
 
-**Arquitectura Modular:** Separación de lógica de negrocio, manejo de datos y menú de consola.
+**Trabajador**
+* Registrar horas trabajadas.
+* Consultar información relacionada con sus tareas asignadas.
 
-**Control de Seguridad:** Validaciones reforzadas en el registro de horas y asignación de tareas.
+## Características Implementadas
+### Validaciones y Reglas de Negocio
+* Prevención de registros con identificadores duplicados.
+* Validación de formatos de fecha.
+* Restricción de jornadas superiores a 24 horas por día por empleado.
+* Manejo estructurado de excepciones para evitar fallos inesperados.
 
+### Persistencia de Datos
+* Almacenamiento permanente mediante archivos JSON.
+* Lectura y escritura centralizada desde el controlador de datos.
+* Identificación clara de separación entre la interfaz visual y el almacenamiento.
 
-## Estructura del Proyecto
-"consola/": Contiene el punto de entrada.
+### Pruebas Unitarias
+* Implementación de pruebas automatizadas utilizando la librería nativa "unittest".
+* Verificación de las reglas de negocio y validaciones principales de forma aislada.
 
-"data/": Almacenamiento de archivos JSON ("base_datos.json","usuarios-json").
+## Instalación y ejecución
+**1. Clonar el repositorio:**
+git clone <url-del-repositorio>
+**2. Acceder al directorio del proyecto:**
+cd "proyecto final"
+**3. Instalar dependencias:**
+pip install -r requirements.txt
+**4. Ejecutar la aplicación:**
+cd python
+python app.py
 
-"python/": Módulos de lógica de negocio, paneles de control y controladores.
-
-
-## Cómo ejecutar el avance
-1. Clonar este repositorio.
-
-2. Asegurarse de tener instalado **Python 3.x**.
-
-3. Navegar a la carpeta raíz del proyecto.
-
-4. Ejecutar el archivo principal:
-   python app.py
-   
-
-## Tecnologías utilizadas
-**Python** (Lógica y POO)
-**JSON** (Persistencia de datos)
-**Git/GitHub** (Control de versiones)
+## Tecnologías Utilizadas
+* Python
+* Tkinter
+* JSON
+* Programación Orientadas a Objetos
+* unittest
+* Git y Github
